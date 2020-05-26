@@ -1427,75 +1427,132 @@
         "dimensions": {
             "type": "object",
             "description": "The list of used dimensions",
-            "patternProperties": {
-                // Regex is defined by ResourceLocation.CODEC
-                "^(?:([a-z0-9/._-]*):)?([a-z0-9/._-]+)$": {
-                    "type": "object",
-                    "required": [
-                        "generator",
-                        "type"
-                    ],
-                    "properties": {
-                        // Defined by ChunkGenerator children
-                        "generator": {
-                            "anyOf": [
-                                {
-                                    "allOf": [
-                                        {
-                                            "$ref": "#/definitions/debugLevelSource"
-                                        },
-                                        {
-                                            "properties": {
-                                                "type": {
-                                                    "enum": [
-                                                        "minecraft:debug"
-                                                    ]
-                                                }
+            "propertyNames": {
+                "anyOf": [
+                    // The regex is defined by ResourceLocation.CODEC
+                    {
+                        "pattern": "^(?:([a-z0-9/._-]*):)?([a-z0-9/._-]+)$"
+                    },
+                    {
+                        // These fields are required. Else, the game crash when the player use a portal
+                        "allOf": [
+                            {
+                                "enum": [
+                                    "minecraft:overworld",
+                                    "minecraft:the_nether",
+                                    "minecraft:the_end"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "additionalProperties": {
+                "type": "object",
+                "required": [
+                    "generator",
+                    "type"
+                ],
+                "properties": {
+                    // Defined by ChunkGenerator children
+                    "generator": {
+                        "anyOf": [
+                            {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/definitions/debugLevelSource"
+                                    },
+                                    {
+                                        "properties": {
+                                            "type": {
+                                                "enum": [
+                                                    "minecraft:debug"
+                                                ]
                                             }
                                         }
-                                    ]
-                                },
-                                {
-                                    "allOf": [
-                                        {
-                                            "$ref": "#/definitions/flatLevelSource"
-                                        },
-                                        {
-                                            "properties": {
-                                                "type": {
-                                                    "enum": [
-                                                        "minecraft:flat"
-                                                    ]
-                                                }
+                                    }
+                                ]
+                            },
+                            {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/definitions/flatLevelSource"
+                                    },
+                                    {
+                                        "properties": {
+                                            "type": {
+                                                "enum": [
+                                                    "minecraft:flat"
+                                                ]
                                             }
                                         }
-                                    ]
-                                },
-                                {
-                                    "allOf": [
-                                        {
-                                            "$ref": "#/definitions/noiseBasedChunkGenerator"
-                                        },
-                                        {
-                                            "properties": {
-                                                "type": {
-                                                    "enum": [
-                                                        "minecraft:noise"
-                                                    ]
-                                                }
+                                    }
+                                ]
+                            },
+                            {
+                                "allOf": [
+                                    {
+                                        "$ref": "#/definitions/noiseBasedChunkGenerator"
+                                    },
+                                    {
+                                        "properties": {
+                                            "type": {
+                                                "enum": [
+                                                    "minecraft:noise"
+                                                ]
                                             }
                                         }
-                                    ]
-                                }
-                            ]
-                        },
-                        "type": {
-                            "$ref": "#/definitions/dimensionType"
-                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "type": {
+                        "$ref": "#/definitions/dimensionType"
                     }
                 }
+            }
+        }
+    },
+    "default":{
+        "minecraft:overworld": {
+            "generator": {
+                "type": "minecraft:noise",
+                "seed": 0,
+                "settings": "minecraft:vanilla_layered",
+                "biome_source": {
+                    "type": "minecraft:vanilla_layered",
+                    "seed": 0,
+                    "large_biomes": false
+                }
             },
-            "additionalProperties": false
+            "type": "minecraft:overworld"
+        },
+        "minecraft:nether": {
+            "generator": {
+                "type": "minecraft:noise",
+                "seed": 0,
+                "settings": "minecraft:nether",
+                "biome_source": {
+                    "type": "minecraft:multi_noise",
+                    "preset": "minecraft:nether",
+                    "seed": 0,
+                    "large_biomes": false
+                }
+            },
+            "type": "minecraft:the_nether"
+        },
+        "minecraft:end": {
+            "generator": {
+                "type": "minecraft:noise",
+                "seed": 0,
+                "settings": "minecraft:end",
+                "biome_source": {
+                    "type": "minecraft:the_end",
+                    "seed": 0
+                }
+            },
+            "type": "minecraft:the_end"
         }
     }
 }
