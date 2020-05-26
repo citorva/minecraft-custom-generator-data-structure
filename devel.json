@@ -1,3 +1,5 @@
+// Defined by WorldGenSettings.CODEC
+// TODO: Documenting properties
 {
     "$id": "https://raw.githubusercontent.com/citorva/minecraft-custom-generator-data-structure/master/1.16/20w21a.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
@@ -16,6 +18,7 @@
             ]
         },
         "builtInStructures": {
+            // Defined by StructureFeature inside Registry.STRUCTURE_FEATURE
             "enum": [
                 "minecraft:pillager_outpost",
                 "minecraft:mineshaft",
@@ -38,6 +41,7 @@
             ]
         },
         "builtInBlock": {
+            // Defined by Blocks inside Registry.BLOCK
             "enum": [
                 "minecraft:air",
                 "minecraft:stone",
@@ -800,6 +804,7 @@
             ]
         },
         "builtInBiome": {
+            // Defined by Biomes inside Registry.BIOME
             "enum": [
                 "minecraft:ocean",
                 "minecraft:plains",
@@ -902,11 +907,14 @@
             "minimum": 0,
             "maximum": 255
         },
+        // Defined by DimensionType.CODEC
         "dimensionType": {
             "anyOf": [
+                // Builtin dimensions are defined by DimensionType.RESOURCE_KEY_CODEC
                 {
                     "$ref": "#/definitions/builtInDimensionType"
                 },
+                // Type object is define by DimensionType.DIRECT_CODEC
                 {
                     "type": "object",
                     "required": [
@@ -943,7 +951,9 @@
                 }
             ]
         },
+        // Defined by DebugLevelSource.CODEC
         "debugLevelSource": {},
+        // Defined by FlatLevelSource.CODEC
         "flatLevelSource": {
             "type": "object",
             "required": [
@@ -955,6 +965,7 @@
                 }
             }
         },
+        // Defined by NoiseBasedChunkGenerator.CODEC
         "noiseBasedChunkGenerator": {
             "type": "object",
             "required": [
@@ -975,6 +986,7 @@
                 }
             }
         },
+        // Defined by FlatLevelGeneratorSettings.CODEC
         "flatLevelGeneratorSettings": {
             "type": "object",
             "required": [
@@ -996,6 +1008,7 @@
                 }
             }
         },
+        // Defined by BiomeSource.CODEC
         "biomeSource": {
             "required": [
                 "type"
@@ -1094,6 +1107,7 @@
                 }
             ]
         },
+        // Defined by StructureSettings.CODEC
         "structureSettings": {
             "type": "object",
             "required": [
@@ -1107,9 +1121,11 @@
                     "type": "object",
                     "propertyNames": {
                         "anyOf": [
+                            // Builting structures
                             {
                                 "$ref": "#/definitions/builtInStructures"
                             },
+                            // Custom structure name should follow this pattern
                             {
                                 "pattern": "^(?:([a-z0-9/._-]*):)?([a-z0-9/._-]+)$"
                             }
@@ -1121,6 +1137,7 @@
                 }
             }
         },
+        // Defined by FlatLayerInfo.CODEC
         "flatLayerInfo": {
             "type": "object",
             "required": [
@@ -1140,8 +1157,10 @@
                 }
             }
         },
+        // Defined by NoiseGeneratorSettings.CODEC
         "noiseGeneratorSettings": {
             "anyOf": [
+                // Defined by NoiseGeneratorSettings.DIRECT_CODEC
                 {
                     "type": "object",
                     "required": [
@@ -1181,6 +1200,7 @@
                         }
                     }
                 },
+                // Defined by NoiseGeneratorSettings.Preset.CODEC
                 {
                     "enum": [
                         "minecraft:overworld",
@@ -1193,6 +1213,7 @@
                 }
             ]
         },
+        // Defined by CheckerboardColumnBiomeSource.CODEC
         "checkerboardColumnBiomeSource": {
             "type": "object",
             "required": [
@@ -1212,6 +1233,7 @@
                 }
             }
         },
+        // Defined by FixedBiomeSource.CODEC
         "fixedBiomeSource": {
             "type": "object",
             "required": [
@@ -1223,8 +1245,10 @@
                 }
             }
         },
+        // Defined by MultiNoiseBiomeSource.CODEC
         "multiNoiseBiomeSource": {
             "anyOf": [
+                // Defined by MultiNoiseBiomeSource.Preset.CODEC
                 {
                     "type": "object",
                     "required": [
@@ -1243,6 +1267,7 @@
                         }
                     }
                 },
+                // Defined by MultiNoiseBiomeSource.DIRECT_CODEC
                 {
                     "type": "object",
                     "required": [
@@ -1262,6 +1287,7 @@
                 }
             ]
         },
+        // Defined by OverworldBiomeSource.CODEC
         "overworldBiomeSource": {
             "type": "object",
             "required": [
@@ -1283,6 +1309,7 @@
                 }
             }
         },
+        // Defined by TheEndBiomeSource.CODEC
         "theEndBiomeSource": {
             "type": "object",
             "required": [
@@ -1295,6 +1322,7 @@
                 }
             }
         },
+        // Defined by StrongholdConfiguration.CODEC
         "strongholdConfiguration": {
             "type": "object",
             "required": [
@@ -1314,6 +1342,7 @@
                 }
             }
         },
+        // Defined by StructureFeatureConfiguration.CODEC
         "structureFeatureConfiguration": {
             "type": "object",
             "required": [
@@ -1333,6 +1362,7 @@
                 }
             }
         },
+        // Defined by NoiseSettings.CODEC
         "noiseSettings": {
             "type": "object",
             "required": [
@@ -1388,6 +1418,7 @@
                 }
             }
         },
+        // Defined by BlockState.CODEC
         "blockState": {
             "type": "object",
             "required": [
@@ -1398,11 +1429,13 @@
                 "Name": {
                     "$ref": "#/definitions/builtInBlock"
                 },
+                // TODO: Understand BlockState Properties
                 "Properties": {
                     "type": "object"
                 }
             }
         },
+        // Defined by NoiseSamplingSettings.CODEC
         "noiseSamplingSettings": {
             "type": "object",
             "required": [
@@ -1426,6 +1459,7 @@
                 }
             }
         },
+        // Defined by NoiseSlideSettings.CODEC
         "noiseSlideSettings": {
             "type": "object",
             "required": [
@@ -1460,6 +1494,8 @@
             "description": "Generate bonus chest for player (beginning stuff...)",
             "default": false
         },
+        // Seems not be currently implemented,
+        // see 20w22 WorldGenSettings.CODEC source code for more information
         "legacy_custom_options": {
             "type": "string",
             "description": "Options for the legacy world generator",
@@ -1475,10 +1511,12 @@
             ],
             "propertyNames": {
                 "anyOf": [
+                    // The regex is defined by ResourceLocation.CODEC
                     {
                         "pattern": "^(?:([a-z0-9/._-]*):)?([a-z0-9/._-]+)$"
                     },
                     {
+                        // These fields are required. Else, the game crash when the player use a portal
                         "allOf": [
                             {
                                 "enum": [
@@ -1498,6 +1536,7 @@
                     "type"
                 ],
                 "properties": {
+                    // Defined by ChunkGenerator children
                     "generator": {
                         "required": [
                             "type"
