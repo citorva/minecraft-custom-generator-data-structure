@@ -25,7 +25,7 @@ A more-complete compatible editor list is available at the [JSON-Schema official
 
 ```json
 {
-    "$schema": "/home/venceslas/git/minecraft-custom-generator-data-structure/devel.json",
+    "$schema": "https://raw.githubusercontent.com/citorva/minecraft-custom-generator-data-structure/master/1.16/20w21a.json",
     "bonus_chest": false,
     "generate_features": true,
     "seed": 0,
