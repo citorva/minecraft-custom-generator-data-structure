@@ -6,7 +6,7 @@ JSON schema v7 compatible schema for minecraft custom world generation configura
 In your world definition file, set in top-level fields the field:
 
 ```json
-"$schema": ""
+"$schema": "https://raw.githubusercontent.com/citorva/minecraft-custom-generator-data-structure/master/1.16/20w21a.json"
 ```
 
 Schema files are compatible with these following text-editors:
