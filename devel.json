@@ -902,14 +902,9 @@
             "minimum": 0,
             "maximum": 2147483647
         },
-        "worldHeightLimited": {
+        "bedrockRoofValue": {
             "type": "number",
-            "minimum": 1,
-            "maximum": 256
-        },
-        "worldHeightLimitedWithNegativeDefault": {
-            "type": "number",
-            "minimum": -2147483648,
+            "minimum": -10,
             "maximum": 256
         },
         // Defined by DimensionType.CODEC
@@ -1150,7 +1145,9 @@
             ],
             "properties": {
                 "height": {
-                    "$ref": "#/definitions/worldHeightLimited"
+                    "type": "number",
+                    "minimum": 1,
+                    "maximum": 256
                 },
                 "block": {
                     "oneOf": [
@@ -1192,13 +1189,15 @@
                             "$ref": "#/definitions/blockState"
                         },
                         "bedrock_roof_position": {
-                            "$ref": "#/definitions/worldHeightLimitedWithNegativeDefault"
+                            "$ref": "#/definitions/bedrockRoofValue"
                         },
                         "bedrock_floor_position": {
-                            "$ref": "#/definitions/worldHeightLimitedWithNegativeDefault"
+                            "$ref": "#/definitions/bedrockRoofValue"
                         },
                         "sea_level": {
-                            "$ref": "#/definitions/worldHeightLimited"
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 256
                         },
                         "disable_mob_generation": {
                             "type": "boolean"
