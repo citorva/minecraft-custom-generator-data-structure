@@ -904,13 +904,13 @@
         },
         "worldHeightLimited": {
             "type": "number",
-            "minimum": 0,
-            "maximum": 255
+            "minimum": 1,
+            "maximum": 256
         },
         "worldHeightLimitedWithNegativeDefault": {
             "type": "number",
             "minimum": -2147483648,
-            "maximum": 255
+            "maximum": 256
         },
         // Defined by DimensionType.CODEC
         "dimensionType": {
@@ -1228,6 +1228,7 @@
                 "biomes": {
                     "type": "array",
                     "uniqueItems": true,
+                    "minItems": 1,
                     "items": {
                         "$ref": "#/definitions/builtInBiome"
                     }

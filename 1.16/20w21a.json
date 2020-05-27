@@ -899,13 +899,13 @@
         },
         "worldHeightLimited": {
             "type": "number",
-            "minimum": 0,
-            "maximum": 255
+            "minimum": 1,
+            "maximum": 256
         },
         "worldHeightLimitedWithNegativeDefault": {
             "type": "number",
             "minimum": -2147483648,
-            "maximum": 255
+            "maximum": 256
         },
         "dimensionType": {
             "anyOf": [
