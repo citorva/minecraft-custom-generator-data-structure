@@ -1170,10 +1170,10 @@
                             "$ref": "#/definitions/blockState"
                         },
                         "bedrock_roof_position": {
-                            "$ref": "#/definitions/worldHeightLimitedWithNegativeDefault"
+                            "$ref": "#/definitions/bedrockRoofValue"
                         },
                         "bedrock_floor_position": {
-                            "$ref": "#/definitions/worldHeightLimitedWithNegativeDefault"
+                            "$ref": "#/definitions/bedrockRoofValue"
                         },
                         "sea_level": {
                             "type": "number",
