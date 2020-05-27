@@ -902,6 +902,11 @@
             "minimum": 0,
             "maximum": 255
         },
+        "worldHeightLimitedWithNegativeDefault": {
+            "type": "number",
+            "minimum": -2147483648,
+            "maximum": 255
+        },
         "dimensionType": {
             "anyOf": [
                 {
@@ -1168,10 +1173,10 @@
                             "$ref": "#/definitions/blockState"
                         },
                         "bedrock_roof_position": {
-                            "$ref": "#/definitions/worldHeightLimited"
+                            "$ref": "#/definitions/worldHeightLimitedWithNegativeDefault"
                         },
                         "bedrock_floor_position": {
-                            "$ref": "#/definitions/worldHeightLimited"
+                            "$ref": "#/definitions/worldHeightLimitedWithNegativeDefault"
                         },
                         "sea_level": {
                             "$ref": "#/definitions/worldHeightLimited"
