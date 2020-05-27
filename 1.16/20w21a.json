@@ -1275,7 +1275,7 @@
                 "legacy_biome_init_layer": {
                     "type": "boolean",
                     "default": false,
-                    "obsolete": true
+                    "readOnly": true
                 },
                 "large_biomes": {
                     "type": "boolean",
@@ -1463,7 +1463,7 @@
         "legacy_custom_options": {
             "type": "string",
             "description": "Options for the legacy world generator",
-            "deprecated": true
+            "readOnly": true
         },
         "dimensions": {
             "type": "object",
