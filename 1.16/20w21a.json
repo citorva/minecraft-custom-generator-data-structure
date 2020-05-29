@@ -892,15 +892,10 @@
             "minimum": -2147483648,
             "maximum": 2147483647
         },
-        "onlyPositiveIntType": {
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 2147483647
-        },
         "bedrockRoofValue": {
             "type": "number",
-            "minimum": -10,
-            "maximum": 256
+            "minimum": -20,
+            "maximum": 276
         },
         "dimensionType": {
             "anyOf": [
@@ -1178,7 +1173,7 @@
                         "sea_level": {
                             "type": "number",
                             "minimum": 0,
-                            "maximum": 256
+                            "maximum": 255
                         },
                         "disable_mob_generation": {
                             "type": "boolean"
@@ -1206,12 +1201,15 @@
                 "biomes": {
                     "type": "array",
                     "uniqueItems": true,
+                    "minItems": 1,
                     "items": {
                         "$ref": "#/definitions/builtInBiome"
                     }
                 },
                 "scale": {
-                    "$ref": "#/definitions/onlyPositiveIntType",
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 62,
                     "default": 2
                 }
             }
@@ -1238,7 +1236,7 @@
                     "properties": {
                         "seed": {
                             "$ref": "#/definitions/longType",
-                            "default": 0
+                            "default": "0"
                         },
                         "preset": {
                             "enum": [
@@ -1279,7 +1277,7 @@
                 "legacy_biome_init_layer": {
                     "type": "boolean",
                     "default": false,
-                    "readOnly": true
+                    "obsolete": true
                 },
                 "large_biomes": {
                     "type": "boolean",
@@ -1308,13 +1306,19 @@
             ],
             "properties": {
                 "distance": {
-                    "$ref": "#/definitions/intType"
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1023
                 },
                 "spread": {
-                    "$ref": "#/definitions/intType"
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1023
                 },
                 "count": {
-                    "$ref": "#/definitions/intType"
+                    "type": "number",
+                    "minimum": 1,
+                    "maximum": 4095
                 }
             }
         },
@@ -1327,13 +1331,19 @@
             ],
             "properties": {
                 "spacing": {
-                    "$ref": "#/definitions/intType"
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 4096
                 },
                 "separation": {
-                    "$ref": "#/definitions/intType"
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 4096
                 },
                 "salt": {
-                    "$ref": "#/definitions/intType"
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 2147483647
                 }
             }
         },
@@ -1352,7 +1362,9 @@
             ],
             "properties": {
                 "height": {
-                    "$ref": "#/definitions/intType"
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 256
                 },
                 "sampling": {
                     "$ref": "#/definitions/noiseSamplingSettings"
@@ -1364,10 +1376,14 @@
                     "$ref": "#/definitions/noiseSlideSettings"
                 },
                 "size_horizontal": {
-                    "$ref": "#/definitions/intType"
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 4
                 },
                 "size_vertical": {
-                    "$ref": "#/definitions/intType"
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 4
                 },
                 "density_factor": {
                     "type": "number"
@@ -1442,7 +1458,9 @@
                     "$ref": "#/definitions/intType"
                 },
                 "size": {
-                    "$ref": "#/definitions/intType"
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 256
                 },
                 "offset": {
                     "$ref": "#/definitions/intType"
@@ -1467,7 +1485,7 @@
         "legacy_custom_options": {
             "type": "string",
             "description": "Options for the legacy world generator",
-            "readOnly": true
+            "deprecated": true
         },
         "dimensions": {
             "type": "object",

@@ -897,15 +897,10 @@
             "minimum": -2147483648,
             "maximum": 2147483647
         },
-        "onlyPositiveIntType": {
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 2147483647
-        },
         "bedrockRoofValue": {
             "type": "number",
-            "minimum": -10,
-            "maximum": 256
+            "minimum": -20,
+            "maximum": 276
         },
         // Defined by DimensionType.CODEC
         "dimensionType": {
@@ -1197,7 +1192,7 @@
                         "sea_level": {
                             "type": "number",
                             "minimum": 0,
-                            "maximum": 256
+                            "maximum": 255
                         },
                         "disable_mob_generation": {
                             "type": "boolean"
@@ -1233,7 +1228,9 @@
                     }
                 },
                 "scale": {
-                    "$ref": "#/definitions/onlyPositiveIntType",
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 62,
                     "default": 2
                 }
             }
@@ -1263,7 +1260,7 @@
                     "properties": {
                         "seed": {
                             "$ref": "#/definitions/longType",
-                            "default": 0
+                            "default": "0"
                         },
                         "preset": {
                             "enum": [
@@ -1337,13 +1334,19 @@
             ],
             "properties": {
                 "distance": {
-                    "$ref": "#/definitions/intType"
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1023
                 },
                 "spread": {
-                    "$ref": "#/definitions/intType"
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1023
                 },
                 "count": {
-                    "$ref": "#/definitions/intType"
+                    "type": "number",
+                    "minimum": 1,
+                    "maximum": 4095
                 }
             }
         },
@@ -1357,13 +1360,19 @@
             ],
             "properties": {
                 "spacing": {
-                    "$ref": "#/definitions/intType"
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 4096
                 },
                 "separation": {
-                    "$ref": "#/definitions/intType"
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 4096
                 },
                 "salt": {
-                    "$ref": "#/definitions/intType"
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 2147483647
                 }
             }
         },
@@ -1383,7 +1392,9 @@
             ],
             "properties": {
                 "height": {
-                    "$ref": "#/definitions/intType"
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 256
                 },
                 "sampling": {
                     "$ref": "#/definitions/noiseSamplingSettings"
@@ -1395,10 +1406,14 @@
                     "$ref": "#/definitions/noiseSlideSettings"
                 },
                 "size_horizontal": {
-                    "$ref": "#/definitions/intType"
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 4
                 },
                 "size_vertical": {
-                    "$ref": "#/definitions/intType"
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 4
                 },
                 "density_factor": {
                     "type": "number"
@@ -1477,7 +1492,9 @@
                     "$ref": "#/definitions/intType"
                 },
                 "size": {
-                    "$ref": "#/definitions/intType"
+                    "type":"number",
+                    "minimum": 0,
+                    "maximum": 256
                 },
                 "offset": {
                     "$ref": "#/definitions/intType"
